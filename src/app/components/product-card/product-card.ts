@@ -1,6 +1,5 @@
 import { Component, input, InputSignal, output, OutputEmitterRef } from '@angular/core';
 import { IProduct } from '../../interface/IProduct';
-import { products } from '../../data/mockProducts';
 
 @Component({
   selector: 'app-product-card',
@@ -10,7 +9,7 @@ import { products } from '../../data/mockProducts';
 })
 export class ProductCard {
 
-  product: InputSignal<IProduct> = input.required<IProduct>()
+  product: InputSignal<IProduct> = input.required<IProduct>();
 
   addToCart: OutputEmitterRef<number> = output<number>();
 
