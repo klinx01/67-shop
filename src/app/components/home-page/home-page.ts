@@ -34,4 +34,5 @@ export class HomePage {
   handleAddToCart(productId: number): void {
     console.log(productId);
   }
+
 }
