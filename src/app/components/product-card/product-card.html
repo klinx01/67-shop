@@ -1,0 +1,17 @@
+<div class="card">
+  <img [src]="product().image" [alt]="product().title">
+
+  <div class="card-content">
+    <span class="category">{{ product().category }}</span>
+
+    <h3 class="title">{{ product().title }}</h3>
+
+    <p class="description">{{ product().description }}</p>
+
+    <div class="card-footer">
+      <span class="price">{{ product().price }} $</span>
+
+      <button class="btn-add" (click)="onAddToCart()">В корзину</button>
+    </div>
+  </div>
+</div>
