@@ -1,0 +1,49 @@
+.not-found-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  text-align: center;
+  font-family: sans-serif;
+  padding: 20px;
+
+  .error-code {
+    font-size: 8rem;
+    margin: 0;
+    color: #1a1a1a;
+    line-height: 1;
+    font-weight: 800;
+  }
+
+  .error-title {
+    font-size: 2rem;
+    margin: 15px 0 10px;
+    color: #222;
+  }
+
+  .error-message {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .back-btn {
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 0px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #444;
+    }
+  }
+}
