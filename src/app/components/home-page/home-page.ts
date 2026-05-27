@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal, Signal, WritableSignal } from '@angular/core';
+import { Component } from '@angular/core';
 import { ProductList } from "../product-list/product-list";
 
 @Component({
@@ -9,6 +9,6 @@ import { ProductList } from "../product-list/product-list";
 })
 export class HomePage { 
 
-  
+
 
 }
