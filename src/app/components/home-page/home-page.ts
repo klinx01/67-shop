@@ -1,8 +1,9 @@
-import { Component, computed, inject, signal, Signal, WritableSignal } from '@angular/core';
+
+import { Component, computed, signal, Signal, WritableSignal } from '@angular/core';
+import { products } from '../../data/mockProducts';
 import { IProduct } from '../../interface/IProduct';
 import { ProductFilter } from "../product-filter/product-filter";
 import { ProductCard } from "../product-card/product-card";
-import { ProductService } from '../../core/services/product.service';
 
 @Component({
   selector: 'app-home-page',
@@ -12,18 +13,16 @@ import { ProductService } from '../../core/services/product.service';
 })
 export class HomePage {
 
-  productService: ProductService = inject(ProductService);
-  
+  productsData: WritableSignal<IProduct[]> = signal<IProduct[]>(products as IProduct[]);
   searchQuery: WritableSignal<string> = signal<string>('');
-  QuantityProducts: Signal<number> = this.productService.productsLength;
 
   filteredProducts: Signal<IProduct[]> = computed<IProduct[]>(() => {
     const query: string = this.searchQuery().toLowerCase().trim();
 
     if (!query) {
-      return this.productService.productsData();
+      return this.productsData();
     } else {
-        return this.productService.productsData().filter((p: IProduct) =>
+        return this.productsData().filter((p: IProduct) =>
           p.title.toLowerCase().includes(query)
         );
       }});
