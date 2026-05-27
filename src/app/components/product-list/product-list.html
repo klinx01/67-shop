@@ -1,0 +1,11 @@
+<app-product-filter (searchChange)="onFilterChange($event)"></app-product-filter>
+<span>{{ QuantityProducts() }}</span>
+
+<div class="products-grid">
+  @for (productItem of filteredProducts(); track productItem.id) {
+    <app-product-card
+      [product]="productItem"
+      (addToCart)="handleAddToCart($event)">
+    </app-product-card>
+  }
+</div>
