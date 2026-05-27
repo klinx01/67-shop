@@ -1,38 +1,14 @@
-import { Component, computed, inject, signal, Signal, WritableSignal } from '@angular/core';
-import { IProduct } from '../../interface/IProduct';
-import { ProductFilter } from "../product-filter/product-filter";
-import { ProductCard } from "../product-card/product-card";
-import { ProductService } from '../../core/services/product.service';
+import { Component } from '@angular/core';
+import { ProductList } from "../product-list/product-list";
 
 @Component({
   selector: 'app-home-page',
-  imports: [ProductFilter, ProductCard],
+  imports: [ProductList],
   templateUrl: './home-page.html',
   styleUrl: './home-page.scss',
 })
-export class HomePage {
+export class HomePage { 
 
-  productService: ProductService = inject(ProductService);
-  
-  searchQuery: WritableSignal<string> = signal<string>('');
-  QuantityProducts: Signal<number> = this.productService.productsLength;
 
-  filteredProducts: Signal<IProduct[]> = computed<IProduct[]>(() => {
-    const query: string = this.searchQuery().toLowerCase().trim();
 
-    if (!query) {
-      return this.productService.productsData();
-    } else {
-        return this.productService.productsData().filter((p: IProduct) =>
-          p.title.toLowerCase().includes(query)
-        );
-      }});
-
-  onFilterChange(value: string): void {
-    this.searchQuery.set(value);
-  }
-
-  handleAddToCart(productId: number): void {
-    console.log(productId);
-  }
 }
