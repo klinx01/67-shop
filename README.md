@@ -19,6 +19,8 @@
    ```bash
    git clone [https://github.com/klinx01/67-shop.git]
 
+## 🚀 Также можно просмотреть сайт перейдя по ссылке: https://67-shop-lyart.vercel.app/
+
 participants: 
 
 Vadim Korotnyan github: @klinx01
