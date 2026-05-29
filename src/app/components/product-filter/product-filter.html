@@ -1,5 +1,10 @@
-<input 
-  type="text" 
-  placeholder="Поиск товаров..." 
-  (input)="onSearch($event.target.value)" 
-/>
+<div class="search-wrapper">
+  <span class="search-icon"></span>
+
+  <input
+    #searchInput
+    type="text"
+    placeholder="Search products..."
+    (input)="onSearch(searchInput.value)"
+  />
+</div>
