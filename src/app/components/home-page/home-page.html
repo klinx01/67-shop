@@ -1,17 +1,7 @@
 <div class="homepage-wrapper">
 
   @if (authService.isLoggedIn()) {
-    <header class="user-bar">
-      <div class="logo">
-        <span class="brand">67</span> shop
-      </div>
-      <div class="user-info">
-        <span class="welcome-text">Welcome, <strong class="username">Guest User</strong>!</span>
-        <button (click)="authService.logout()" class="btn-logout-small">
-          Log Out
-        </button>
-      </div>
-    </header>
+    <app-header></app-header>
 
     <main class="content-container">
       <app-product-list></app-product-list>
