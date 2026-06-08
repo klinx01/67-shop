@@ -1,6 +1,6 @@
 import { computed, Injectable, Signal, signal, WritableSignal } from '@angular/core';
-import { products } from '../../data/mockProducts';
-import { IProduct } from '../../interface/IProduct';
+import { products } from '../../shared/data/mockProducts';
+import { IProduct } from '../../shared/interfaces/IProduct';
 
 @Injectable({
   providedIn: 'root',

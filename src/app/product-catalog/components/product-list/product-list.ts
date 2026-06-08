@@ -1,7 +1,7 @@
 import { Component, computed, inject, signal, Signal, WritableSignal } from '@angular/core';
-import { IProduct } from '../../interface/IProduct';
+import { IProduct } from '../../../shared/interfaces/IProduct';
 import { ProductFilter } from "../product-filter/product-filter";
-import { ProductService } from '../../core/services/product.service';
+import { ProductService } from '../../services/product.service';
 import { ProductCard } from "../product-card/product-card";
 
 @Component({

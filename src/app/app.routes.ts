@@ -4,13 +4,13 @@ import { authGuard } from './core/guards/auth.guard';
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () => import('./components/home-page/home-page').then(m => m.HomePage),
+    loadComponent: () => import('./product-catalog/components/home-page/home-page').then(m => m.HomePage),
     pathMatch: 'full'
   },
 
   {
     path: 'cart',
-    loadComponent: () => import('./components/home-page/home-page').then(m => m.HomePage),
+    loadComponent: () => import('./product-catalog/components/home-page/home-page').then(m => m.HomePage),
     canActivate: [authGuard]
   },
 

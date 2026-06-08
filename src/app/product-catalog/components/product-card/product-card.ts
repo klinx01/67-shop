@@ -1,5 +1,5 @@
 import { Component, input, InputSignal, output, OutputEmitterRef } from '@angular/core';
-import { IProduct } from '../../interface/IProduct';
+import { IProduct } from '../../../shared/interfaces/IProduct';
 
 @Component({
   selector: 'app-product-card',
