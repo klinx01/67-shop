@@ -1,9 +1,12 @@
 import { Component, signal, WritableSignal } from '@angular/core';
-import { HomePage } from "./components/home-page/home-page";
+import { RouterOutlet } from '@angular/router';
+import { FooterComponent } from './shared/components/footer/footer';
+import { Header } from "./shared/components/header/header";
+
 
 @Component({
   selector: 'app-root',
-  imports: [HomePage],
+  imports: [RouterOutlet, FooterComponent, Header],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

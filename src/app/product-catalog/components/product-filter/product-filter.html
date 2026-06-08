@@ -1,0 +1,10 @@
+<div class="search-wrapper">
+  <span class="search-icon"></span>
+
+  <input
+    #searchInput
+    type="text"
+    placeholder="Search products..."
+    (input)="onSearch(searchInput.value)"
+  />
+</div>
