@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal, Signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal, Signal, WritableSignal } from '@angular/core';
 import { IProduct } from '../../../shared/interfaces/IProduct';
 import { ProductFilter } from "../product-filter/product-filter";
 import { ProductService } from '../../services/product.service';
@@ -9,6 +9,7 @@ import { ProductCard } from "../product-card/product-card";
   imports: [ProductFilter, ProductCard],
   templateUrl: './product-list.html',
   styleUrl: './product-list.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductList {
 

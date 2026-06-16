@@ -1,5 +1,5 @@
 import { PricePipe } from './../../../pipes/price-format.price';
-import { Component, input, InputSignal, output, OutputEmitterRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, InputSignal, output, OutputEmitterRef } from '@angular/core';
 import { IProduct } from '../../../shared/interfaces/IProduct';
 
 @Component({
@@ -7,6 +7,7 @@ import { IProduct } from '../../../shared/interfaces/IProduct';
   imports: [PricePipe],
   templateUrl: './product-card.html',
   styleUrl: './product-card.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductCard {
 
