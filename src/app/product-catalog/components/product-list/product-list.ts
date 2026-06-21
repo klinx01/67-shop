@@ -3,10 +3,14 @@ import { IProduct } from '../../../shared/interfaces/IProduct';
 import { ProductFilter } from "../product-filter/product-filter";
 import { ProductService } from '../../services/product.service';
 import { ProductCard } from "../product-card/product-card";
+import { Router } from '@angular/router';
+import { MatIcon, MatIconModule } from "@angular/material/icon";
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-product-list',
-  imports: [ProductFilter, ProductCard],
+  imports: [ProductFilter, ProductCard, MatToolbarModule, MatButtonModule, MatIconModule],
   templateUrl: './product-list.html',
   styleUrl: './product-list.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -14,6 +18,7 @@ import { ProductCard } from "../product-card/product-card";
 export class ProductList {
 
   productService: ProductService = inject(ProductService);
+  router: Router = inject(Router);
 
   searchQuery: WritableSignal<string> = signal<string>('');
   QuantityProducts: Signal<number> = this.productService.productsLength;
@@ -36,6 +41,10 @@ export class ProductList {
 
   handleAddToCart(productId: number): void {
     console.log(productId);
+  }
+
+  redirectToCreateProduct(): void {
+    this.router.navigate(['/create-product']);
   }
 
 }

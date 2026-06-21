@@ -1,0 +1,28 @@
+<div class="form-container">
+  <h2>Добавление товара</h2>
+  
+  <form [formGroup]="createProductForm" class="product-form" (ngSubmit)="onSubmit()">
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Название товара</mat-label>
+      <input matInput formControlName="name" placeholder="Например: Наушники">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Категория</mat-label>
+      <input matInput formControlName="category" placeholder="Например: Электроника">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Описание</mat-label>
+      <textarea matInput formControlName="description" rows="3"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Цена</mat-label>
+      <input matInput type="number" formControlName="price">
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" [disabled]="createProductForm.invalid" type="submit">Создать товар</button>
+  </form>
+</div>
