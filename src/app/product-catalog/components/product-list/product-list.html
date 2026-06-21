@@ -1,6 +1,7 @@
 <div class="filter-panel">
   <app-product-filter (searchChange)="onFilterChange($event)"></app-product-filter>
 
+  <button mat-flat-button (click)="redirectToCreateProduct()"><mat-icon>create</mat-icon>Create product</button>
   <div class="products-quantity">
     Products found: <span>{{ QuantityProducts() }}</span>
   </div>
