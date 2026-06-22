@@ -9,7 +9,7 @@
     <p class="description">{{ product().description }}</p>
 
     <div class="card-footer">
-      <span class="price">{{ product().price }} $</span>
+      <span class="price">{{ product().price | price }}</span>
 
       <button class="btn-add" (click)="onAddToCart()">В корзину</button>
     </div>
