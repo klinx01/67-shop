@@ -1,8 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ProductList } from "../product-list/product-list";
 import { AuthService } from '../../../core/services/auth.service';
-import { Header } from '../../../shared/components/header/header';
-import { Auth } from "../../../shared/components/auth/auth";
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,7 +13,7 @@ export class HomePage {
 
   public readonly authService = inject(AuthService);
   router: Router = inject(Router);
-  
+
   redirectToAuth() {
     this.router.navigate(['/auth']);
   }
