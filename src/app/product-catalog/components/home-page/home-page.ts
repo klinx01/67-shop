@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ProductList } from "../product-list/product-list";
-import { AuthService } from '../../../core/services/auth.service';
+import { AuthService } from '../../../authentification/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({

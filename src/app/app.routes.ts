@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { authGuard } from './core/guards/auth.guard';
+import { authGuard } from './authentification/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -23,7 +23,7 @@ export const routes: Routes = [
   },
   {
     path: 'auth',
-    loadComponent: () => import('./shared/components/auth/auth').then(m => m.Auth)
+    loadComponent: () => import('./authentification/components/auth/auth').then(m => m.Auth)
   },
   {
     path: '404',
