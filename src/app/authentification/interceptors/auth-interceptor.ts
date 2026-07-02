@@ -1,0 +1,48 @@
+import { HttpErrorResponse, HttpHandlerFn, HttpInterceptorFn, HttpRequest } from '@angular/common/http';
+import { inject, Injector } from '@angular/core';
+import { LocalStorageService } from '../../core/services/local-storage.service';
+import { IToken } from '../interfaces/IToken';
+import { catchError, switchMap, throwError } from 'rxjs';
+import { AuthService } from '../services/auth.service';
+
+export const authInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>, next: HttpHandlerFn) => {
+  const localStorageService: LocalStorageService = inject(LocalStorageService);
+  const injector: Injector = inject(Injector);
+
+  function addHttpHeader(req: HttpRequest<unknown>, token: string): HttpRequest<unknown> {
+    return req.clone({
+      setHeaders: {
+        Authorization: `Bearer ${ token }`
+      }
+    })
+  }
+
+  const authTokens: IToken | null = localStorageService.getValue<IToken>('auth-tokens');
+  if (!authTokens?.accessToken) {
+    return next(req);
+  } else {
+    const cloneReq: HttpRequest<unknown> = addHttpHeader(req, authTokens?.accessToken)
+    return next(cloneReq).pipe(
+      catchError((err: HttpErrorResponse) => {
+        if (err.status === 401) {
+          const authService = injector.get(AuthService);
+          return authService.refreshToken().pipe(
+            switchMap(() => {
+              const newToken = localStorageService.getValue<IToken>('auth-tokens')
+              if (!newToken) {
+                return throwError((err: HttpErrorResponse) => err)
+              }
+              const newReq = addHttpHeader(req, newToken.accessToken)
+              return next(newReq)
+            }),
+            catchError((refErr: HttpErrorResponse) => {
+              authService.logout();
+              return throwError(() => refErr);
+            })
+          )
+        }
+        return throwError((err: HttpErrorResponse) => err)
+      }),
+    )
+  }
+}

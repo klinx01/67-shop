@@ -1,0 +1,76 @@
+$primary-color: #2563eb;
+$primary-hover: #1d4ed8;
+$bg-gradient: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+$card-bg: #ffffff;
+$text-main: #1e293b;
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: $bg-gradient;
+  padding: 1.5rem;
+
+  .auth-card {
+    background: $card-bg;
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.4s ease-out;
+
+    .auth-header {
+      text-align: center;
+      margin-bottom: 2rem;
+
+      .auth-logo {
+        display: inline-block;
+        background: $primary-color;
+        color: white;
+        font-size: 1.75rem;
+        font-weight: 800;
+        padding: 0.5rem 1rem;
+        border-radius: 12px;
+        margin-bottom: 0.75rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        color: $text-main;
+        margin: 0;
+      }
+    }
+
+    .auth-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .full-width {
+        width: 100%;
+      }
+
+      // Настройка Angular Material для плотной верстки
+      .mat-mdc-form-field {
+        margin-bottom: 0;
+        
+        .mat-mdc-text-field-wrapper {
+          padding-top: 8px; // Подгонка высоты
+        }
+      }
+
+      .login-button {
+        height: 48px;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

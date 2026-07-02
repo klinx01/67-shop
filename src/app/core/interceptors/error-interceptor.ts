@@ -12,6 +12,7 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
     catchError((error: HttpErrorResponse) => {
       if (error.status >= 500 && error.status <= 599) {
         messageService.showMessage(`Ошибка: Сервер временно недоступен, попробуйте позже`);
+        return throwError((err: HttpErrorResponse) => err)
       }
       
       switch (error.status) {

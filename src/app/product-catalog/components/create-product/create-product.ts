@@ -27,7 +27,7 @@ export class CreateProduct {
     name: ['', [Validators.minLength(4), Validators.maxLength(67), Validators.required]],
     category: ['', [Validators.minLength(4), Validators.maxLength(20), Validators.required]],
     description: ['', [Validators.minLength(4), Validators.maxLength(500), Validators.required]],
-    price: [0, [Validators.min(1), Validators.required]]
+    price: ['', [Validators.min(1), Validators.required]]
   })
 
   onSubmit(): void {
