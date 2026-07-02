@@ -16,6 +16,7 @@ export class AuthService {
   }
 
   public logout(): void {
+    this.router.navigate(['/auth'])
     this._isLoggedIn.set(false);
   }
 
