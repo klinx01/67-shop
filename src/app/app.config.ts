@@ -5,12 +5,20 @@ import { products } from './shared/data/mockProducts';
 import { PRODUCTS_DATA } from './shared/tokens/product.token';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { errorInterceptor } from './core/interceptors/error-interceptor';
+import { loadingInterceptor } from './core/interceptors/loading-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideHttpClient(withInterceptors([errorInterceptor])),
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
+
+    provideHttpClient(
+      withInterceptors([
+        loadingInterceptor
+      ]),
+    ),
+
     {
       provide: PRODUCTS_DATA,
       useValue: products
