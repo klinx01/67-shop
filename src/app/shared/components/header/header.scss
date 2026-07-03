@@ -68,3 +68,26 @@ $border-color: #cbd5e1;
     }
   }
 }
+
+.logo {
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition: opacity .2s ease;
+}
+
+.logo:hover {
+  opacity: .8;
+}
+
+.cart-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  border-radius: 20px;
+  font-weight: 500;
+}

@@ -13,11 +13,9 @@ export class ProductCard {
 
   product: InputSignal<IProduct> = input.required<IProduct>();
 
-  addToCart: OutputEmitterRef<number> = output<number>();
+  addToCart: OutputEmitterRef<IProduct> = output<IProduct>();
 
   onAddToCart(): void {
-    const productId: number = this.product().id;
-    this.addToCart.emit(productId);
+    this.addToCart.emit(this.product());
   }
-
 }
