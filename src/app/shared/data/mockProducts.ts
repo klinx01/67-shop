@@ -106,14 +106,6 @@ export const products: IProduct[] = [
     image: 'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500'
   },
   {
-    id: 14,
-    title: 'Внешний SSD Drive 1ТБ',
-    price: 89.99,
-    description: 'Высокоскоростной накопитель Type-C для резервного копирования.',
-    category: 'Электроника',
-    image: 'https://images.unsplash.com/photo-1597872200319-3814424e8922?w=500'
-  },
-  {
     id: 15,
     title: 'Экшен-камера RunCam 4K',
     price: 199.5,
@@ -242,14 +234,6 @@ export const products: IProduct[] = [
     image: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500'
   },
   {
-    id: 32,
-    title: 'Перчатки сенсорные WoolMix',
-    price: 16.0,
-    description: 'Теплые шерстяные перчатки с возможностью работы со смартфоном.',
-    category: 'Аксессуары',
-    image: 'https://images.unsplash.com/photo-1516257984-b1b4d707412e?w=500'
-  },
-  {
     id: 33,
     title: 'Набор кухонных ножей Chef',
     price: 79.99,
@@ -290,14 +274,6 @@ export const products: IProduct[] = [
     image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=500'
   },
   {
-    id: 38,
-    title: 'Тарелки обеденные Ceramica',
-    price: 42.5,
-    description: 'Набор из 4 стильных керамических тарелок ручной работы.',
-    category: 'Посуда',
-    image: 'https://images.unsplash.com/photo-1535401991746-da3d9065f697?w=500'
-  },
-  {
     id: 39,
     title: 'Форма для выпечки силиконовая',
     price: 11.99,
@@ -312,14 +288,6 @@ export const products: IProduct[] = [
     description: 'Герметичные стеклянные контейнеры для хранения продуктов.',
     category: 'Посуда',
     image: 'https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=500'
-  },
-  {
-    id: 41,
-    title: 'Столовые приборы Nero 24шт',
-    price: 55.0,
-    description: 'Набор из нержавеющей стали с матовым черным покрытием.',
-    category: 'Посуда',
-    image: 'https://images.unsplash.com/photo-1543510473-ac2c353ee9e4?w=500'
   },
   {
     id: 42,
@@ -394,14 +362,6 @@ export const products: IProduct[] = [
     image: 'https://images.unsplash.com/photo-1602928321679-560bb453f190?w=500'
   },
   {
-    id: 51,
-    title: 'Подушка с эффектом памяти',
-    price: 39.0,
-    description: 'Анатомическая форма для правильной поддержки шеи во время сна.',
-    category: 'Дом',
-    image: 'https://images.unsplash.com/photo-1520004434532-66e4b089496b?w=500'
-  },
-  {
     id: 52,
     title: 'Плед флисовый CozyNight',
     price: 27.5,
@@ -456,14 +416,6 @@ export const products: IProduct[] = [
     description: 'Объем 4 л, верхний залив воды и низкий уровень шума.',
     category: 'Дом',
     image: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=500'
-  },
-  {
-    id: 59,
-    title: 'Набор вешалок деревянных 10шт',
-    price: 16.5,
-    description: 'Прочное дерево, нескользящая перекладина для брюк.',
-    category: 'Дом',
-    image: 'https://images.unsplash.com/photo-1594320757750-f86da8340df5?w=500'
   },
   {
     id: 60,

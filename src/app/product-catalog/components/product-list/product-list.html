@@ -7,6 +7,16 @@
   </div>
 </div>
 
+  <div class="cart-info">
+    <span>
+      🛒 <strong>{{ cartService.totalItems() }}</strong> items
+    </span>
+    <span class="separator">•</span>
+    <span>
+      💰 <strong>{{ cartService.totalPrice() | price }}</strong>
+    </span>
+  </div>
+
 <div class="products-grid">
   @for (productItem of filteredProducts(); track productItem.id) {
     <app-product-card
