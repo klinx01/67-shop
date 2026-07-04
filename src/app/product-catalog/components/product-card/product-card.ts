@@ -1,6 +1,6 @@
 import { PricePipe } from './../../../pipes/price-format.price';
-import { ChangeDetectionStrategy, Component, input, InputSignal, output, OutputEmitterRef } from '@angular/core';
-import { IProduct } from '../../../shared/interfaces/IProduct';
+import { ChangeDetectionStrategy, Component, effect, input, InputSignal, output, OutputEmitterRef } from '@angular/core';
+import { IProduct } from '../../interfaces/IProduct';
 
 @Component({
   selector: 'app-product-card',
@@ -14,6 +14,12 @@ export class ProductCard {
   product: InputSignal<IProduct> = input.required<IProduct>();
 
   addToCart: OutputEmitterRef<IProduct> = output<IProduct>();
+
+  constructor() {
+  effect(() => {
+    console.log('Данные товара:', this.product());
+  });
+}
 
   onAddToCart(): void {
     this.addToCart.emit(this.product());

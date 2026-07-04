@@ -1,4 +1,4 @@
-import { inject, Injectable, Signal, signal, WritableSignal } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ILogin } from '../interfaces/ILogin';
 import { AuthApiService } from './auth-api.service';
@@ -45,7 +45,7 @@ export class AuthService {
         tap((res: IAuthUser) => {
           this.authUserSubject.next(res)
         }),
-        catchError((err: HttpErrorResponse) => {
+        catchError(() => {
           this.authUserSubject.next(null);
           return of(null)
         })

@@ -1,6 +1,6 @@
 import { computed, Injectable, Signal, signal, WritableSignal } from "@angular/core";
 import { ICartItem } from "../../shared/interfaces/ICartItem";
-import { IProduct } from "../../shared/interfaces/IProduct";
+import { IProduct } from "../../product-catalog/interfaces/IProduct";
 
 @Injectable({
   providedIn: 'root',
