@@ -1,8 +1,7 @@
 import { APP_INITIALIZER, ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
-import { products } from './shared/data/mockProducts';
-import { APP_CONFIG, PRODUCTS_DATA } from './shared/tokens/app-config.token';
+import { APP_CONFIG } from './shared/tokens/app-config.token';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { errorInterceptor } from './core/interceptors/error-interceptor';
 import { loadingInterceptor } from './core/interceptors/loading-interceptor';
