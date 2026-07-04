@@ -1,6 +1,6 @@
 import { computed, inject, Injectable, Signal, signal, WritableSignal } from '@angular/core';
 import { IProduct } from '../interfaces/IProduct';
-import { tap } from 'rxjs';
+import { Subscription, tap } from 'rxjs';
 import { IProductResponse } from '../interfaces/IProductResponse';
 import { ProductApiService } from './product-api.service';
 import { INewProduct } from '../interfaces/INewProduct';
@@ -22,15 +22,19 @@ export class ProductService {
     this.setProducts();
   }
 
-  setProducts() {
+  setProducts(): void {
     this.productApiService.getProducts().pipe(
-      tap((res: IProductResponse) => {
-        this.productsData.set(res.products)
+      tap((res: IProductResponse | IProduct[]) => {
+        if (Array.isArray(res)) {
+          this.productsData.set(res);
+        } else {
+          this.productsData.set(res.products);
+        }
       })
     ).subscribe();
   }
 
-  addProduct(newProduct: INewProduct) {
+  addProduct(newProduct: INewProduct): Subscription {
     return this.productApiService.addProduct(newProduct).pipe(
       tap((res: IProduct) => {
         this.productsData.update((products) => [...products, res])
