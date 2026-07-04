@@ -1,7 +1,6 @@
 import { computed, inject, Injectable, Signal, signal, WritableSignal } from '@angular/core';
 import { IProduct } from '../interfaces/IProduct';
-import { PRODUCTS_DATA } from '../../shared/tokens/product.token';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { tap } from 'rxjs';
 import { IProductResponse } from '../interfaces/IProductResponse';
 import { ProductApiService } from './product-api.service';
 import { INewProduct } from '../interfaces/INewProduct';

@@ -1,8 +1,7 @@
 import { APP_INITIALIZER, ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
-import { products } from './shared/data/mockProducts';
-import { PRODUCTS_DATA } from './shared/tokens/product.token';
+import { APP_CONFIG } from './shared/tokens/app-config.token';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { errorInterceptor } from './core/interceptors/error-interceptor';
 import { loadingInterceptor } from './core/interceptors/loading-interceptor';
@@ -27,8 +26,10 @@ export const appConfig: ApplicationConfig = {
       ]),
     ),
     {
-      provide: PRODUCTS_DATA,
-      useValue: products
-    }
+      provide: APP_CONFIG,
+      useValue: {
+        useMockData: false,
+      },
+    },
   ]
 };
