@@ -1,8 +1,8 @@
 <div class="form-container">
   <h2>Добавление товара</h2>
-  
+
   <form [formGroup]="createProductForm" class="product-form" (ngSubmit)="onSubmit()">
-    
+
     <mat-form-field appearance="outline">
       <mat-label>Название товара</mat-label>
       <input matInput formControlName="title" placeholder="Например: Наушники">
@@ -22,6 +22,16 @@
       <mat-label>Цена</mat-label>
       <input matInput type="number" formControlName="price">
     </mat-form-field>
+
+    <mat-form-field appearance="outline">
+
+  <mat-label>Image</mat-label>
+    <input
+      type="file"
+      accept="image/*"
+      (change)="onFileSelected($event)"
+    />
+  </mat-form-field>
 
     <button mat-flat-button color="primary" [disabled]="createProductForm.invalid" type="submit">Создать товар</button>
   </form>

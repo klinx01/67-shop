@@ -27,6 +27,7 @@ export class CreateProduct {
   router: Router = inject(Router);
   productApiService: ProductApiService = inject(ProductApiService);
   productService: ProductService = inject(ProductService);
+  selectedFile: File | null = null;
 
   createProductForm = this.fb.group({
     title: ['', [Validators.minLength(4), Validators.maxLength(67), Validators.required]],
@@ -35,9 +36,19 @@ export class CreateProduct {
     price: ['', [Validators.min(1), Validators.required]]
   })
 
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+
+    if (!input.files?.length) {
+      return;
+    }
+
+    this.selectedFile = input.files[0];
+  }
+
   onSubmit(): void {
-    if (this.createProductForm.invalid) {
-      return
+    if (this.createProductForm.invalid || !this.selectedFile) {
+      return;
     }
 
     const formValue: INewProduct = this.createProductForm.value as INewProduct;
