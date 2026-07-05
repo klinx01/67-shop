@@ -34,29 +34,30 @@ describe('CreateProduct', () => {
 
   it('should navigate on valid submit', () => {
     component.createProductForm.setValue({
-      name: 'Product name',
+      title: 'Product name',
       category: 'Category',
       description: 'Some long description',
       price: 100
     });
+
     component.onSubmit();
     expect(routerMock.navigate).toHaveBeenCalledWith(['']);
   });
 
   it('should invalidate name shorter than 4 chars', () => {
     component.createProductForm.setValue({
-      name: 'abc',
+      title: 'abc',
       category: 'Valid category',
       description: 'Valid description',
       price: 10
     });
 
-    expect(component.createProductForm.controls['name'].valid).toBeFalsy();
+    expect(component.createProductForm.controls['title'].valid).toBeFalsy();
   });
 
   it('should invalidate price less than 1', () => {
     component.createProductForm.setValue({
-      name: 'Valid name',
+      title: 'Valid name',
       category: 'Valid category',
       description: 'Valid description',
       price: 0
@@ -66,7 +67,7 @@ describe('CreateProduct', () => {
 
   it('should invalidate category shorter than 4 chars', () => {
     component.createProductForm.setValue({
-      name: 'Valid name',
+      title: 'Valid name',
       category: 'abc',
       description: 'Valid description',
       price: 10
@@ -78,7 +79,7 @@ describe('CreateProduct', () => {
     routerMock.navigate.mockClear();
 
     component.createProductForm.setValue({
-      name: '',
+      title: '',
       category: '',
       description: '',
       price: 0
@@ -89,7 +90,7 @@ describe('CreateProduct', () => {
 
   it('should invalidate description shorter than 4 chars', () => {
     component.createProductForm.setValue({
-      name: 'Valid name',
+      title: 'Valid name',
       category: 'Valid category',
       description: 'abc',
       price: 10
@@ -99,7 +100,7 @@ describe('CreateProduct', () => {
 
   it('should be valid when all fields are correct', () => {
     component.createProductForm.setValue({
-      name: 'Product name',
+      title: 'Product name',
       category: 'Category',
       description: 'Some description',
       price: 100

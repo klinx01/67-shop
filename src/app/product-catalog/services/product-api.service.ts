@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, InjectionToken } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { IProductResponse } from '../interfaces/IProductResponse';
 import { IProduct } from '../interfaces/IProduct';

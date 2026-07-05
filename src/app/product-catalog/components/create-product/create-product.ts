@@ -5,7 +5,6 @@ import { MatCardModule } from '@angular/material/card'
 import  {MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
-import { ProductApiService } from '../../services/product-api.service';
 import { ProductService } from '../../services/product.service';
 import { INewProduct } from '../../interfaces/INewProduct';
 
@@ -25,29 +24,17 @@ export class CreateProduct {
 
   fb: FormBuilder = inject(FormBuilder);
   router: Router = inject(Router);
-  productApiService: ProductApiService = inject(ProductApiService);
   productService: ProductService = inject(ProductService);
-  selectedFile: File | null = null;
 
   createProductForm = this.fb.group({
     title: ['', [Validators.minLength(4), Validators.maxLength(67), Validators.required]],
     category: ['', [Validators.minLength(4), Validators.maxLength(20), Validators.required]],
     description: ['', [Validators.minLength(4), Validators.maxLength(500), Validators.required]],
-    price: ['', [Validators.min(1), Validators.required]]
+    price: [0, [Validators.min(1), Validators.required]],
   })
 
-  onFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-
-    if (!input.files?.length) {
-      return;
-    }
-
-    this.selectedFile = input.files[0];
-  }
-
   onSubmit(): void {
-    if (this.createProductForm.invalid || !this.selectedFile) {
+    if (this.createProductForm.invalid) {
       return;
     }
 

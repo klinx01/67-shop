@@ -1,6 +1,6 @@
 export interface INewProduct {
   title: string;
-  price: string;
+  price: number;
   description: string;
   category: string;
 }
