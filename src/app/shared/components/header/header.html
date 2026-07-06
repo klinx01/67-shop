@@ -1,11 +1,16 @@
 <div class="font-family">
   <mat-toolbar color="primary" class="user-bar">
-    <div class="logo">
-      <span class="brand">67</span> shop
+    <div class="logo" routerLink="/">
+      <span class="brand">67 </span>
+      shop
     </div>
     <span class="spacer"></span>
     <div class="user-info">
       <span class="welcome-text">Welcome, <strong class="username">Guest User</strong>!</span>
+      <button mat-flat-button routerLink="/cart" class="cart-button">
+        <mat-icon>shopping_cart</mat-icon>
+        Cart ({{ cartService.totalItems() }})
+      </button>
       <button mat-flat-button color="warn" (click)="authService.logout()">
         <mat-icon>logout</mat-icon>
         Log Out

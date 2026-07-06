@@ -1,6 +1,6 @@
 <div class="homepage-wrapper">
 
-  @if (authService.isLoggedIn()) {
+  @if (authService.authUser$) {
     <main class="content-container">
       <app-product-list></app-product-list>
     </main>

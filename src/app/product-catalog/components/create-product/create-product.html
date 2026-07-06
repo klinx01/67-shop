@@ -1,11 +1,11 @@
 <div class="form-container">
   <h2>Добавление товара</h2>
-  
+
   <form [formGroup]="createProductForm" class="product-form" (ngSubmit)="onSubmit()">
-    
+
     <mat-form-field appearance="outline">
       <mat-label>Название товара</mat-label>
-      <input matInput formControlName="name" placeholder="Например: Наушники">
+      <input matInput formControlName="title" placeholder="Например: Наушники">
     </mat-form-field>
 
     <mat-form-field appearance="outline">

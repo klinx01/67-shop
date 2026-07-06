@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { authGuard } from './core/guards/auth.guard';
+import { authGuard } from './authentification/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -17,13 +17,13 @@ export const routes: Routes = [
       },
       {
         path: 'cart',
-        loadComponent: () => import('./product-catalog/components/home-page/home-page').then(m => m.HomePage),
+        loadComponent: () => import('./product-catalog/components/cart/cart').then(m => m.Cart),
       },
     ]
   },
   {
     path: 'auth',
-    loadComponent: () => import('./shared/components/auth/auth').then(m => m.Auth)
+    loadComponent: () => import('./authentification/components/auth/auth').then(m => m.Auth)
   },
   {
     path: '404',

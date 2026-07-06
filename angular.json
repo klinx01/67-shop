@@ -11,9 +11,7 @@
     "67-shop": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
+        "@schematics/angular:service": { "type": "service"}
       },
       "root": "",
       "sourceRoot": "src",
