@@ -15,12 +15,6 @@ export class ProductCard {
 
   addToCart: OutputEmitterRef<IProduct> = output<IProduct>();
 
-  constructor() {
-  effect(() => {
-    console.log('Данные товара:', this.product());
-  });
-}
-
   onAddToCart(): void {
     this.addToCart.emit(this.product());
   }
