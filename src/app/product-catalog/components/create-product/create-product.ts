@@ -39,7 +39,7 @@ export class CreateProduct {
     }
 
     const formValue: INewProduct = this.createProductForm.value as INewProduct;
-    this.productService.addProduct(formValue);
+    this.productService.addProduct(formValue).subscribe();
     this.router.navigate([''])
   }
 

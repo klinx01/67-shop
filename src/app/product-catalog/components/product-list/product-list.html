@@ -31,3 +31,10 @@
     </app-product-card>
   }
 </div>
+<mat-paginator
+  [length]="productService.totalRecords"
+  [pageSize]="productService.limit"
+  [pageIndex]="productService.skip / productService.limit"
+  [pageSizeOptions]="[15, 30, 50]"
+  (page)="onNextPage($event)">
+</mat-paginator>
