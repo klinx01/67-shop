@@ -16,12 +16,12 @@ export class ProductApiService {
   http: HttpClient = inject(HttpClient);
   private readonly config: IAppConfig = inject(APP_CONFIG);
 
-  getProducts(): Observable<IProduct[] | IProductResponse> {
+  getProducts(limit: number, skip: number): Observable<IProduct[] | IProductResponse> {
     if (this.config.useMockData) {
       return of(products);
     }
 
-    return this.http.get<IProductResponse>('https://dummyjson.com/products')
+    return this.http.get<IProductResponse>(`https://dummyjson.com/products?limit=${ limit }&skip=${ skip }`)
   }
 
   addProduct(newProduct: INewProduct): Observable<IProduct> {

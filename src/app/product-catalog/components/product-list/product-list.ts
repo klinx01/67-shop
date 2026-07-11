@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal, Signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, OnInit, signal, Signal, WritableSignal } from '@angular/core';
 import { IProduct } from '../../interfaces/IProduct';
 import { ProductFilter } from "../product-filter/product-filter";
 import { ProductService } from '../../services/product.service';
@@ -9,10 +9,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CartService } from '../../../core/services/cart.service';
 import { PricePipe } from "../../../pipes/price-format.price";
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-product-list',
-  imports: [ProductFilter, ProductCard, MatToolbarModule, MatButtonModule, MatIconModule, PricePipe],
+  imports: [ProductFilter, ProductCard, MatToolbarModule, MatButtonModule, MatIconModule, PricePipe, MatPaginator],
   templateUrl: './product-list.html',
   styleUrl: './product-list.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -35,8 +36,14 @@ export class ProductList {
         return this.productService.productsData().filter((p: IProduct) =>
           p.title.toLowerCase().includes(query)
         );
-      }});
+      }
+  });
 
+  onNextPage(event: PageEvent): void {
+  this.productService.skip = event.pageIndex * event.pageSize;
+  this.productService.limit = event.pageSize;
+  this.productService.loadProducts();
+}
 
   onFilterChange(value: string): void {
     this.searchQuery.set(value);
@@ -44,8 +51,6 @@ export class ProductList {
 
   handleAddToCart(product: IProduct): void {
     this.cartService.addToCart(product);
-
-    console.log(this.cartService.items());
   }
 
   redirectToCreateProduct(): void {

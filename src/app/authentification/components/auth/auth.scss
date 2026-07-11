@@ -52,12 +52,11 @@ $text-main: #1e293b;
         width: 100%;
       }
 
-      // Настройка Angular Material для плотной верстки
       .mat-mdc-form-field {
         margin-bottom: 0;
         
         .mat-mdc-text-field-wrapper {
-          padding-top: 8px; // Подгонка высоты
+          padding-top: 8px;
         }
       }
 
