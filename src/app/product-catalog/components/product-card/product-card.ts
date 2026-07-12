@@ -1,5 +1,5 @@
 import { PricePipe } from './../../../pipes/price-format.price';
-import { ChangeDetectionStrategy, Component, effect, input, InputSignal, output, OutputEmitterRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, InputSignal, output, OutputEmitterRef } from '@angular/core';
 import { IProduct } from '../../interfaces/IProduct';
 
 @Component({

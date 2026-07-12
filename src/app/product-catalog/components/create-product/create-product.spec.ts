@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Router } from '@angular/router';
 import { vi } from 'vitest';
 import { CreateProduct } from './create-product';
+import { APP_CONFIG } from '../../../shared/tokens/app-config.token';
+import { Router } from '@angular/router';
 
 describe('CreateProduct', () => {
   let component: CreateProduct;
@@ -15,7 +16,16 @@ describe('CreateProduct', () => {
     await TestBed.configureTestingModule({
       imports: [CreateProduct],
       providers: [
-        { provide: Router, useValue: routerMock }
+        {
+          provide: APP_CONFIG,
+          useValue: {
+            apiUrl: 'https://dummyjson.com'
+          }
+        },
+        {
+          provide: Router,
+          useValue: routerMock
+        }
       ]
     }).compileComponents();
 
