@@ -67,9 +67,12 @@
       <h3>Total items: {{ cartService.totalItems() }}</h3>
       <h3>Total price: {{ cartService.totalPrice() | price }}</h3>
 
-      <button class="clear-btn"
-              (click)="clearCart()">
+      <button class="clear-btn" (click)="clearCart()">
         Clear cart
+      </button>
+
+      <button class="checkout-btn" (click)="checkout()">
+        Pay
       </button>
     </div>
 
