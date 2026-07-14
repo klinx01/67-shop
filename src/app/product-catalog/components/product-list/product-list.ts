@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, effect, inject, OnInit, signal, Signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal, Signal, WritableSignal } from '@angular/core';
 import { IProduct } from '../../interfaces/IProduct';
 import { ProductFilter } from "../product-filter/product-filter";
 import { ProductService } from '../../services/product.service';
